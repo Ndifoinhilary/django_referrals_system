@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+  {% if request.user.is_authenticated %}
+    {{user.username}}
+    {% else %}
+    <a href="">
+        <button class="btn btn-primary"> Create an Account</button>
+    </a>
+  {% endif %}
+{% endblock content %}
