@@ -7,14 +7,6 @@ from django.contrib.auth import login, authenticate
 # Create your views here.
 
 
-def my_recommendation_view(request):
-    profile = Profile.objects.get(user=request.user)
-
-    my_recs = profile.get_recommened_profiles()
-
-    return render(request, "profile.html", {"my_recs": my_recs})
-
-
 def signup_view(request):
     profile_id = request.session.get("ref_profile")
     print("profile_id", profile_id)
