@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from referrals.models import Profile
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
@@ -25,15 +25,7 @@ def signup_view(request):
         else:
             form.save()
 
-        username = form.cleaned_data.get("username")
-        password = form.cleaned_data.get("password1")
-
-        user = authenticate(request, username=username, password=password)
-
-        login(request, user)
-        return redirect("main")
-
-    return render(request, "signup.html", {"form": form})
+    return render(request, "signup.html")
 
 
 def main_view(request, *args, **kwargs):

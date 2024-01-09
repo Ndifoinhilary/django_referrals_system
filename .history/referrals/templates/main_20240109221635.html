@@ -3,13 +3,11 @@
 
 
 {% block content %}
-<div class="container text-center m-3 p-4">
-    {% if request.user.is_authenticated %}
+  {% if request.user.is_authenticated %}
     {{user.username}}
     {% else %}
     <a href="{% url 'signup'  %}">
         <button class="btn btn-primary mx=2"> Create an Account</button>
     </a>
   {% endif %}
-</div>
 {% endblock content %}
